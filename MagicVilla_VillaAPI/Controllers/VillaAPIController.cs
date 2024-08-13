@@ -1,18 +1,10 @@
 ﻿using AutoMapper;
-using MagicVilla_VillaAPI.Data;
 using MagicVilla_VillaAPI.Models;
 using MagicVilla_VillaAPI.Models.dto;
-using MagicVilla_VillaAPI.Repository.IRepository;
 using MagicVilla_VillaAPI.Repository;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Net;
-using Microsoft.AspNetCore.Http;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using System;
 
 namespace MagicVilla_VillaAPI.Controllers
 {
@@ -182,7 +174,7 @@ namespace MagicVilla_VillaAPI.Controllers
                  villa.Sqft  = villaDTO.Sqft;
                  villa.Occupancy = villaDTO.Occupancy;*/
 
-                Villa model = Mapper.Map<Villa>(updateDTO);
+                Villa model = _mapper.Map<Villa>(updateDTO);
 
                 /*Villa model = new()
                 {
