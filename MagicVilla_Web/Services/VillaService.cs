@@ -2,7 +2,6 @@
 using MagicVilla_Web.Models;
 using MagicVilla_Web.Models.dto;
 using MagicVilla_Web.Services.IServices;
-using Microsoft.Extensions.Configuration;
 
 namespace MagicVilla_Web.Services
 {
@@ -24,14 +23,13 @@ namespace MagicVilla_Web.Services
                 URL = villaUrl + "/api/villaAPI"
             });
         }
-
-        public Task DeleteAsync<T>(int id)
+        public Task<T> DeleteAsync<T>(int id)
         {
             return SendAsync<T>(new APIRequest()
             {
                 ApiType = SD.ApiType.DELETE,
-                URL = villaUrl + "/api/villaAPI" + id
-            }) ;
+                URL = villaUrl + "/api/villaAPI/" + id
+            });
         }
 
         public Task<T> GetAllAsync<T>()
