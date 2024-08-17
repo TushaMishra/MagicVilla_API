@@ -12,10 +12,12 @@ using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using Asp.Versioning;
 
 namespace MagicVilla_VillaAPI.Controllers
 {
     [Route("api/VillaNumberAPI")]
+    [ApiVersion("2.0")]
     public class VillaNumberAPIController : Controller
     {
         protected APIResponse _response;
