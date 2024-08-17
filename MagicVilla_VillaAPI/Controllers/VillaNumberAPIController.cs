@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace MagicVilla_VillaAPI.Controllers
 {
@@ -75,6 +77,7 @@ namespace MagicVilla_VillaAPI.Controllers
             return _response;
         }
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<APIResponse>> CreateVillaNumber([FromBody] VillaNumberCreateDTO createDTO)
         {
             try
@@ -108,6 +111,7 @@ namespace MagicVilla_VillaAPI.Controllers
             return _response;
         }
         [HttpDelete("{id:int}", Name = "DeleteVillaNumber")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<APIResponse>> DeleteVillaNumber(int id)
         {
             try
@@ -136,6 +140,7 @@ namespace MagicVilla_VillaAPI.Controllers
             return _response;
         }
         [HttpPut("{id:int}", Name = "UpdateVillaNumber")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<APIResponse>> UpdateVillaNumber(int id, [FromBody] VillaNumberDTO updateDTO)
         {
             try
