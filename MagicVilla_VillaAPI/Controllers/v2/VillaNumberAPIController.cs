@@ -27,7 +27,7 @@ namespace MagicVilla_VillaAPI.Controllers.v2
             _dbVilla = dbVilla;
         }
         //[MapToApiVersion("2.0")]
-        [HttpGet]
+        [HttpGet("GetString")]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
