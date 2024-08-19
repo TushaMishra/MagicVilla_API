@@ -6,6 +6,7 @@ using MagicVilla_VillaAPI.Repository;
 using MagicVilla_VillaAPI.Repository.IRepository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -25,6 +26,9 @@ builder.Services.AddApiVersioning(options =>
 {
     options.AssumeDefaultVersionWhenUnspecified = true;
     options.DefaultApiVersion = new ApiVersion(1, 0);  
+}).AddApiExplorer(options =>
+{
+    options.GroupNameFormat = "'v'VVV";
 });
 
 var key = builder.Configuration.GetValue<string>("AppSettings:Secret");
