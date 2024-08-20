@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MagicVilla_VillaAPI.Models;
 using MagicVilla_VillaAPI.Models.dto;
+using MagicVilla_VillaAPI.Repository;
 
 namespace MagicVilla_VillaAPI
 {
@@ -17,6 +18,7 @@ namespace MagicVilla_VillaAPI
             CreateMap<VillaNumber, VillaNumberDTO>().ReverseMap();
             CreateMap<VillaNumber, VillaNumberCreateDTO>().ReverseMap();
             CreateMap<VillaNumber, VillaNumberUpdateDTO>().ReverseMap();
+            CreateMap<ApplicationUser, UserDTO>().ReverseMap();
         }
     }
 }
